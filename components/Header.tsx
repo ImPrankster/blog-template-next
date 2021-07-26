@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <header>
       <div className="container">
-        <Link href="/ passHref">
+        <Link href="/" passHref>
           <h2>ImPrankster</h2>
         </Link>
       </div>

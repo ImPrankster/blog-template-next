@@ -13,7 +13,7 @@ const Post = ({ post }) => {
 
       <p>{post.frontmatter.excerpt}</p>
 
-      <Link href={`/blog/${post.slug}`}>
+      <Link href={`/blog/${post.slug}`} passHref>
         <a className="btn">Full Article</a>
       </Link>
     </div>
