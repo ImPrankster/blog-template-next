@@ -1,46 +1,48 @@
+import style from "../styles/PostFilterSelector.module.scss";
+
 const PostFilterSelector = ({ setPostFilter }) => {
   return (
-    <div className="container">
-      <a
+    <div className={style.postFilterSelector}>
+      <div
         className="btn"
         onClick={() => {
           setPostFilter(null);
         }}
       >
-        #All
-      </a>
-      <a
+        #ALL
+      </div>
+      <div
         className="btn"
         onClick={() => {
           setPostFilter("Daily");
         }}
       >
         #Daily
-      </a>
-      <a
+      </div>
+      <div
         className="btn"
         onClick={() => {
           setPostFilter("Code");
         }}
       >
         #Code
-      </a>
-      <a
+      </div>
+      <div
         className="btn"
         onClick={() => {
           setPostFilter("Design");
         }}
       >
         #Design
-      </a>
-      <a
+      </div>
+      <div
         className="btn"
         onClick={() => {
           setPostFilter("Projects");
         }}
       >
         #Projects
-      </a>
+      </div>
     </div>
   );
 };

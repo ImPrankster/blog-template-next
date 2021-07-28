@@ -1,0 +1,8 @@
+@mixin container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+  overflow: auto;
+  padding: 0 10px;
+}

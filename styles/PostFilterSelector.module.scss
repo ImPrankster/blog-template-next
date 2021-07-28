@@ -1,0 +1,5 @@
+@use "components/flexbox";
+
+.postFilterSelector {
+  @include flexbox.container;
+}

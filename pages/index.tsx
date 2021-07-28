@@ -24,7 +24,7 @@ export default function Home({ posts }) {
 
       <PostFilterSelector setPostFilter={setPostFilter} />
 
-      <div className="posts">
+      <div className={style.posts}>
         {posts
           .filter((post) => {
             if (postFilter == null) {
