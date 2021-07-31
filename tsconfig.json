@@ -14,6 +14,13 @@
     "isolatedModules": true,
     "jsx": "preserve"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "utils/index.js"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "utils/index.js",
+    "utils/themes/themesdark.js",
+    "utils/themes/themelight.js"
+  ],
   "exclude": ["node_modules"]
 }

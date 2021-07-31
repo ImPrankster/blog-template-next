@@ -1,8 +1,9 @@
 @use "components/flexbox";
 
 .posts {
-  @include flexbox.container;
+  @extend .container;
   justify-content: center;
+  align-items: stretch;
   gap: 30px;
   margin-top: 30px;
 }

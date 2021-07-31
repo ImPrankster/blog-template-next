@@ -11,36 +11,6 @@ import style from "../styles/Home.module.scss";
 import Post from "../components/Post";
 import PostFilterSelector from "../components/PostFilterSelector";
 
-export default function Home({ posts }) {
-  const [postFilter, setPostFilter] = useState(null);
-
-  return (
-    <div>
-      <Head>
-        <title>ImPrankster&apos;s Blogs</title>
-        <meta name="description" content="Blog from ImPrankster" />
-        <meta name="keywords" content="Design, Coding, Daily" />
-      </Head>
-
-      <PostFilterSelector setPostFilter={setPostFilter} />
-
-      <div className={style.posts}>
-        {posts
-          .filter((post) => {
-            if (postFilter == null) {
-              return true;
-            } else {
-              return post.frontmatter.type == postFilter;
-            }
-          })
-          .map((post, index) => (
-            <Post key={index} post={post} />
-          ))}
-      </div>
-    </div>
-  );
-}
-
 export async function getStaticProps() {
   // Get files from root/posts
   const files = fs.readdirSync(path.join("posts"));
@@ -68,4 +38,37 @@ export async function getStaticProps() {
       posts: posts.sort(sortByDate),
     },
   };
+}
+
+export default function Home({ posts }) {
+  const [postFilter, setPostFilter] = useState(null);
+
+  return (
+    <div>
+      <Head>
+        <title>ImPrankster&apos;s Blogs</title>
+        <meta name="description" content="Blog from ImPrankster" />
+        <meta name="keywords" content="Design, Coding, Daily" />
+      </Head>
+
+      <PostFilterSelector
+        postFilter={postFilter}
+        setPostFilter={setPostFilter}
+      />
+
+      <div className={style.posts}>
+        {posts
+          .filter((post) => {
+            if (postFilter == null) {
+              return true;
+            } else {
+              return post.frontmatter.type == postFilter;
+            }
+          })
+          .map((post, index) => (
+            <Post key={index} post={post} />
+          ))}
+      </div>
+    </div>
+  );
 }

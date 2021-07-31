@@ -1,5 +1,13 @@
 @use "components/flexbox";
+@use "components/button";
 
 .postFilterSelector {
-  @include flexbox.container;
+  @extend .container;
+  max-width: 700px;
+}
+.filterBtn {
+  @extend .btn;
+  text-align: center;
+  width: auto;
+  padding-bottom: 0px;
 }
