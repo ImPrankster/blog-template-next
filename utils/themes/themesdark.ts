@@ -10,4 +10,6 @@ export default {
       main: "#CB4042",
     },
   },
+
+  props: {},
 };

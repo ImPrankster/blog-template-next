@@ -1,4 +1,4 @@
-import { PaletteType } from "@material-ui/core";
+import { ButtonBase, PaletteType } from "@material-ui/core";
 
 export default {
   palette: {
@@ -10,4 +10,6 @@ export default {
       main: "#CB4042",
     },
   },
+
+  props: {},
 };

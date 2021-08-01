@@ -7,7 +7,7 @@ import CodeRoundedIcon from "@material-ui/icons/CodeRounded";
 import BrushRoundedIcon from "@material-ui/icons/BrushRounded";
 import HotelRoundedIcon from "@material-ui/icons/HotelRounded";
 import EventNoteRoundedIcon from "@material-ui/icons/EventNoteRounded";
-import { Container, Fade } from "@material-ui/core";
+import { Container } from "@material-ui/core";
 
 const useStylesBottomNavigation = makeStyles({
   root: {
