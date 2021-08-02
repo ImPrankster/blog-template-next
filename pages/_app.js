@@ -1,4 +1,3 @@
-import "../styles/globals.scss";
 import Header from "../components/Header";
 import React from "react";
 import useMediaQuery from "@material-ui/core/useMediaQuery";

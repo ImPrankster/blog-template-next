@@ -1,16 +1,18 @@
+import { useState } from "react";
 import fs from "fs";
 import path from "path";
 import Head from "next/head";
 import matter from "gray-matter";
 import { sortByDate } from "../utils";
-import { useState } from "react";
-import Image from "next/image";
-import style from "../styles/Home.module.scss";
+import { makeStyles } from "@material-ui/styles";
+
+import { Container, Grid } from "@material-ui/core";
 
 // Components
 import Post from "../components/Post";
 import PostFilterSelector from "../components/PostFilterSelector";
 
+//get Props
 export async function getStaticProps() {
   // Get files from root/posts
   const files = fs.readdirSync(path.join("posts"));
@@ -31,8 +33,6 @@ export async function getStaticProps() {
     };
   });
 
-  //console.log(posts);
-
   return {
     props: {
       posts: posts.sort(sortByDate),
@@ -40,11 +40,20 @@ export async function getStaticProps() {
   };
 }
 
+//Set Style
+const useStyles = makeStyles((theme) => ({
+  root: {
+    marginTop: theme.spacing(3),
+    marginBottom: theme.spacing(3),
+  },
+}));
+
 export default function Home({ posts }) {
   const [postFilter, setPostFilter] = useState(null);
+  const classes = useStyles();
 
   return (
-    <div>
+    <>
       <Head>
         <title>ImPrankster&apos;s Blogs</title>
         <meta name="description" content="Blog from ImPrankster" />
@@ -55,20 +64,27 @@ export default function Home({ posts }) {
         postFilter={postFilter}
         setPostFilter={setPostFilter}
       />
-
-      <div className={style.posts}>
-        {posts
-          .filter((post) => {
-            if (postFilter == null) {
-              return true;
-            } else {
-              return post.frontmatter.type == postFilter;
-            }
-          })
-          .map((post, index) => (
-            <Post key={index} post={post} />
-          ))}
-      </div>
-    </div>
+      <Container size="md" className={classes.root}>
+        <Grid
+          container
+          direction="row"
+          justifyContent="center"
+          alignItems="flex-start"
+          spacing={2}
+        >
+          {posts
+            .filter((post) => {
+              if (postFilter == null) {
+                return true;
+              } else {
+                return post.frontmatter.type == postFilter;
+              }
+            })
+            .map((post, index) => (
+              <Post key={index} post={post} />
+            ))}
+        </Grid>
+      </Container>
+    </>
   );
 }

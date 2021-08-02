@@ -4,26 +4,60 @@ import matter from "gray-matter";
 import marked from "marked";
 import Link from "next/link";
 
+import { Container, Grid, Typography, Button } from "@material-ui/core";
+import ArrowBackRoundedIcon from "@material-ui/icons/ArrowBackRounded";
+
+import { makeStyles } from "@material-ui/styles";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    marginTop: theme.spacing(3),
+    marginBottom: theme.spacing(3),
+  },
+}));
+
 export default function PostPage({
   frontmatter: { title, type, date, cover_image },
   slug,
   content,
 }) {
+  const classes = useStyles();
+
   return (
-    <>
-      <Link href="/" passHref>
-        <a className="btn">Go Back</a>
-      </Link>
-      <div className="card card-page">
-        <h1 className="post-title">{title}</h1>
-        <h2 className="post-type">#{type}</h2>
-        <div className="post-date">Posted on {date}</div>
-        <img src={cover_image} alt="" />
-        <div className="post-body">
-          <div dangerouslySetInnerHTML={{ __html: marked(content) }}></div>
-        </div>
-      </div>
-    </>
+    <Container size="md">
+      <Grid
+        container
+        direction="column"
+        justifyContent="flex-start"
+        alignItems="flex-start"
+      >
+        <Grid item>
+          <Button
+            variant="contained"
+            color="primary"
+            className={classes.button}
+            startIcon={<ArrowBackRoundedIcon />}
+            href="/"
+          >
+            GO BACK
+          </Button>
+        </Grid>
+      </Grid>
+    </Container>
+    // <>
+    //   <Link href="/" passHref>
+    //     <a className="btn">Go Back</a>
+    //   </Link>
+    //   <div className="card card-page">
+    //     <h1 className="post-title">{title}</h1>
+    //     <h2 className="post-type">#{type}</h2>
+    //     <div className="post-date">Posted on {date}</div>
+    //     <img src={cover_image} alt="" />
+    //     <div className="post-body">
+    //       <div dangerouslySetInnerHTML={{ __html: marked(content) }}></div>
+    //     </div>
+    //   </div>
+    // </>
   );
 }
 
