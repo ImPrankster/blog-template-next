@@ -1,13 +1,16 @@
-import { PaletteType } from "@material-ui/core";
-
 export default {
+  spacing: 8,
+
   palette: {
-    type: "dark" as PaletteType,
+    type: "light",
     primary: {
-      main: "#fcfaf2",
+      main: "#1c1c1c",
     },
     secondary: {
       main: "#CB4042",
+    },
+    background: {
+      default: "#fcfaf2",
     },
   },
 

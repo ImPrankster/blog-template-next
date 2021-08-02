@@ -13,7 +13,7 @@ const lightTheme = createTheme(lightThemeObj);
 const darkTheme = createTheme(darkThemeObj);
 
 function MyApp({ Component, pageProps }) {
-  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
+  const isInDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
 
   return (
     <>
@@ -21,9 +21,9 @@ function MyApp({ Component, pageProps }) {
         rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
       />
-      <ThemeProvider theme={prefersDarkMode ? darkTheme : lightTheme}>
+      <ThemeProvider theme={isInDarkMode ? darkTheme : lightTheme}>
         <CssBaseline />
-        <Header />
+        <Header isInDarkMode={isInDarkMode} />
         <Component {...pageProps} />
       </ThemeProvider>
     </>

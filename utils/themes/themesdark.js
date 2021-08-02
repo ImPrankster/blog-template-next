@@ -1,13 +1,16 @@
-import { ButtonBase, PaletteType } from "@material-ui/core";
-
 export default {
+  spacing: 8,
+
   palette: {
-    type: "light" as PaletteType,
+    type: "dark",
     primary: {
-      main: "#1c1c1c",
+      main: "#fcfaf2",
     },
     secondary: {
       main: "#CB4042",
+    },
+    background: {
+      default: "#1c1c1c",
     },
   },
 

@@ -9,14 +9,14 @@ import HotelRoundedIcon from "@material-ui/icons/HotelRounded";
 import EventNoteRoundedIcon from "@material-ui/icons/EventNoteRounded";
 import { Container } from "@material-ui/core";
 
-const useStylesBottomNavigation = makeStyles({
-  root: {
+const useStyles = makeStyles({
+  bottomNav: {
     backgroundColor: "rgba(255, 255, 255, 0)",
   },
 });
 
 const PostFilterSelector = ({ postFilter, setPostFilter }) => {
-  const bottomNavigationClasses = useStylesBottomNavigation();
+  const classes = useStyles();
 
   return (
     <Container maxWidth="sm">
@@ -25,7 +25,7 @@ const PostFilterSelector = ({ postFilter, setPostFilter }) => {
         onChange={(event, value) => {
           setPostFilter(value);
         }}
-        className={bottomNavigationClasses.root}
+        className={classes.bottomNav}
       >
         <BottomNavigationAction
           label="All"
