@@ -28,20 +28,21 @@ export default function PostPage({
       <Grid
         container
         direction="column"
-        justifyContent="flex-start"
-        alignItems="flex-start"
+        justifyContent="center"
+        alignItems="center"
       >
-        <Grid item>
-          <Button
-            variant="contained"
-            color="primary"
-            className={classes.button}
-            startIcon={<ArrowBackRoundedIcon />}
-            href="/"
-          >
-            GO BACK
-          </Button>
-        </Grid>
+        <Button
+          variant="contained"
+          color="primary"
+          className={classes.button}
+          startIcon={<ArrowBackRoundedIcon />}
+          href="/"
+        >
+          GO BACK
+        </Button>
+        <Typography variant="h3" gutterBottom>
+          {title}
+        </Typography>
       </Grid>
     </Container>
     // <>
