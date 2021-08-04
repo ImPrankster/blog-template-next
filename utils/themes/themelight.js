@@ -4,15 +4,24 @@ export default {
   palette: {
     type: "light",
     primary: {
-      main: "#1c1c1c",
+      main: "#6F3381",
     },
     secondary: {
       main: "#CB4042",
     },
     background: {
-      default: "#fcfaf2",
+      default: "#fffffb",
     },
   },
 
-  props: {},
+  typography: {
+    h3: {
+      fontFamily: "Source Serif Pro, serif",
+      fontWeight: "600",
+      fontSize: "2.2rem",
+      "@media (min-width:600px)": {
+        fontSize: "3rem",
+      },
+    },
+  },
 };

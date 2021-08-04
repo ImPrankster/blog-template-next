@@ -12,6 +12,7 @@ import { Container } from "@material-ui/core";
 const useStyles = makeStyles((theme) => ({
   root: {
     marginBottom: theme.spacing(1),
+    marginTop: theme.spacing(1),
   },
   bottomNav: {
     backgroundColor: "rgba(255, 255, 255, 0)",

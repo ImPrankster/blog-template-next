@@ -43,8 +43,7 @@ export async function getStaticProps() {
 //Set Style
 const useStyles = makeStyles((theme) => ({
   root: {
-    marginTop: theme.spacing(3),
-    marginBottom: theme.spacing(3),
+    padding: theme.spacing(3),
   },
 }));
 
@@ -64,13 +63,13 @@ export default function Home({ posts }) {
         postFilter={postFilter}
         setPostFilter={setPostFilter}
       />
-      <Container size="md" className={classes.root}>
+      <Container maxWidth="lg" className={classes.root}>
         <Grid
           container
           direction="row"
           justifyContent="center"
           alignItems="flex-start"
-          spacing={2}
+          spacing={4}
         >
           {posts
             .filter((post) => {

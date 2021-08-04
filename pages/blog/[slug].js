@@ -1,17 +1,27 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import marked from "marked";
-import Link from "next/link";
+import ReactMarkdown from "react-markdown";
+import "github-markdown-css";
 
-import { Container, Grid, Typography, Button } from "@material-ui/core";
+import { Container, Grid, Typography, Button, Box } from "@material-ui/core";
 import ArrowBackRoundedIcon from "@material-ui/icons/ArrowBackRounded";
 
 import { makeStyles } from "@material-ui/styles";
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    paddingTop: theme.spacing(3),
+    paddingBottom: theme.spacing(3),
+    paddingLeft: theme.spacing(6),
+    paddingRight: theme.spacing(6),
+  },
+  frontmatterGrid: {
     marginTop: theme.spacing(3),
+  },
+  frontmatterImg: {
+    border: "1px solid rgba(138, 107, 190, 0.7)",
+    borderRadius: "8px",
     marginBottom: theme.spacing(3),
   },
 }));
@@ -24,41 +34,38 @@ export default function PostPage({
   const classes = useStyles();
 
   return (
-    <Container size="md">
+    <Container maxWidth="md" className={classes.root}>
+      <Button
+        variant="contained"
+        color="primary"
+        startIcon={<ArrowBackRoundedIcon />}
+        href="/"
+      >
+        GO BACK
+      </Button>
       <Grid
         container
         direction="column"
-        justifyContent="center"
-        alignItems="center"
+        justifyContent="flex-start"
+        alignItems="flex-start"
+        className={classes.frontmatterGrid}
       >
-        <Button
-          variant="contained"
-          color="primary"
-          className={classes.button}
-          startIcon={<ArrowBackRoundedIcon />}
-          href="/"
-        >
-          GO BACK
-        </Button>
+        <img
+          src={cover_image}
+          alt=""
+          width="100%"
+          className={classes.frontmatterImg}
+        />
         <Typography variant="h3" gutterBottom>
           {title}
         </Typography>
+        <Typography variant="overline">{"#" + type}</Typography>
+        <Typography variant="overline">{"Posted On  " + date}</Typography>
+        <div className="markdown-body">
+          <ReactMarkdown>{content}</ReactMarkdown>
+        </div>
       </Grid>
     </Container>
-    // <>
-    //   <Link href="/" passHref>
-    //     <a className="btn">Go Back</a>
-    //   </Link>
-    //   <div className="card card-page">
-    //     <h1 className="post-title">{title}</h1>
-    //     <h2 className="post-type">#{type}</h2>
-    //     <div className="post-date">Posted on {date}</div>
-    //     <img src={cover_image} alt="" />
-    //     <div className="post-body">
-    //       <div dangerouslySetInnerHTML={{ __html: marked(content) }}></div>
-    //     </div>
-    //   </div>
-    // </>
   );
 }
 
