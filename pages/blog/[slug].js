@@ -2,7 +2,6 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";
-import "github-markdown-css";
 
 import { Container, Grid, Typography, Button, Box } from "@material-ui/core";
 import ArrowBackRoundedIcon from "@material-ui/icons/ArrowBackRounded";
@@ -18,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
   frontmatterGrid: {
     marginTop: theme.spacing(3),
+    marginBottom: theme.spacing(3),
   },
   frontmatterImg: {
     border: "1px solid rgba(138, 107, 190, 0.7)",
@@ -61,10 +61,10 @@ export default function PostPage({
         </Typography>
         <Typography variant="overline">{"#" + type}</Typography>
         <Typography variant="overline">{"Posted On  " + date}</Typography>
-        <div className="markdown-body">
-          <ReactMarkdown>{content}</ReactMarkdown>
-        </div>
       </Grid>
+      <div className="markdown-body">
+        <ReactMarkdown>{content}</ReactMarkdown>
+      </div>
     </Container>
   );
 }

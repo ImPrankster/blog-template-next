@@ -3,6 +3,7 @@ import React from "react";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
+import "../styles/global.css";
 
 //Themes
 import lightThemeObj from "../utils/themes/themelight";
@@ -29,6 +30,10 @@ function MyApp({ Component, pageProps }) {
       <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+      />
+      <link
+        rel="stylesheet"
+        href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack-subset.css"
       />
       <ThemeProvider theme={isInDarkMode ? darkTheme : lightTheme}>
         <CssBaseline />
