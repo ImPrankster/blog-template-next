@@ -5,42 +5,47 @@ import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import "../styles/global.css";
 
-//Themes
-import lightThemeObj from "../utils/themes/themelight";
-import darkThemeObj from "../utils/themes/themesdark";
-
-const lightTheme = createTheme(lightThemeObj);
-const darkTheme = createTheme(darkThemeObj);
-
 function MyApp({ Component, pageProps }) {
   const isInDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
 
+  const theme = React.useMemo(
+    () =>
+      createTheme({
+        spacing: 8,
+
+        palette: {
+          type: isInDarkMode ? "dark" : "light",
+          primary: {
+            main: isInDarkMode ? "#8A6BBE" : "#6F3381",
+          },
+          secondary: {
+            main: "#CB4042",
+          },
+          background: {
+            default: isInDarkMode ? "#1c1c1c" : "#fffffb",
+          },
+        },
+
+        typography: {
+          h3: {
+            fontFamily: "Source Serif Pro, serif",
+            fontWeight: "600",
+            fontSize: "2.2rem",
+            "@media (min-width:600px)": {
+              fontSize: "3rem",
+            },
+          },
+        },
+      }),
+    [isInDarkMode]
+  );
+
   return (
-    <>
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossOrigin="true"
-      />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@300;600&display=swap"
-        rel="stylesheet"
-      />
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-      />
-      <link
-        rel="stylesheet"
-        href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack-subset.css"
-      />
-      <ThemeProvider theme={isInDarkMode ? darkTheme : lightTheme}>
-        <CssBaseline />
-        <Header isInDarkMode={isInDarkMode} />
-        <Component {...pageProps} />
-      </ThemeProvider>
-    </>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Header isInDarkMode={isInDarkMode} />
+      <Component {...pageProps} />
+    </ThemeProvider>
   );
 }
 

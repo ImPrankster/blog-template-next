@@ -13,14 +13,14 @@ import {
   Typography,
 } from "@material-ui/core";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
   root: {
     maxWidth: 345,
     backgroundColor: "rgba(255, 255, 255, 0)",
     border: "1px solid rgba(138, 107, 190, 0.7)",
     borderRadius: "8px",
   },
-}));
+});
 
 const Post = ({ post }) => {
   const classes = useStyles();
