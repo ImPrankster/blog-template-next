@@ -3,7 +3,13 @@ import path from "path";
 import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";
 
-import { Container, Grid, Typography, Button, Box } from "@material-ui/core";
+import {
+  Container,
+  Grid,
+  Typography,
+  Button,
+  Tooltip,
+} from "@material-ui/core";
 import ArrowBackRoundedIcon from "@material-ui/icons/ArrowBackRounded";
 
 import { makeStyles } from "@material-ui/styles";
@@ -20,11 +26,42 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(3),
   },
   frontmatterImg: {
-    border: "1px solid rgba(138, 107, 190, 0.7)",
     borderRadius: "8px",
     marginBottom: theme.spacing(3),
   },
 }));
+
+export async function getStaticPaths() {
+  const files = fs.readdirSync(path.join("articles"));
+
+  const paths = files.map((filename) => ({
+    params: {
+      slug: filename.replace(".md", ""),
+    },
+  }));
+
+  return {
+    paths,
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({ params: { slug } }) {
+  const markdownWithMeta = fs.readFileSync(
+    path.join("articles", slug + ".md"),
+    "utf-8"
+  );
+
+  const { data: frontmatter, content } = matter(markdownWithMeta);
+
+  return {
+    props: {
+      frontmatter,
+      slug,
+      content,
+    },
+  };
+}
 
 export default function PostPage({
   frontmatter: { title, type, date, cover_image },
@@ -35,14 +72,12 @@ export default function PostPage({
 
   return (
     <Container maxWidth="md" className={classes.root}>
-      <Button
-        variant="contained"
-        color="primary"
-        startIcon={<ArrowBackRoundedIcon />}
-        href="/"
-      >
+      <Button color="secondary" startIcon={<ArrowBackRoundedIcon />} href="/">
         GO BACK
       </Button>
+      <Tooltip title="Under Development" placement="top">
+        <Button color="secondary">Talk About It</Button>
+      </Tooltip>
       <Grid
         container
         direction="column"
@@ -59,44 +94,12 @@ export default function PostPage({
         <Typography variant="h3" gutterBottom>
           {title}
         </Typography>
-        <Typography variant="overline">{"#" + type}</Typography>
-        <Typography variant="overline">{"Posted On  " + date}</Typography>
+        <Typography variant="caption">{"#" + type}</Typography>
+        <Typography variant="caption">{"Posted On  " + date}</Typography>
       </Grid>
       <div className="markdown-body">
         <ReactMarkdown>{content}</ReactMarkdown>
       </div>
     </Container>
   );
-}
-
-export async function getStaticPaths() {
-  const files = fs.readdirSync(path.join("posts"));
-
-  const paths = files.map((filename) => ({
-    params: {
-      slug: filename.replace(".md", ""),
-    },
-  }));
-
-  return {
-    paths,
-    fallback: false,
-  };
-}
-
-export async function getStaticProps({ params: { slug } }) {
-  const markdownWithMeta = fs.readFileSync(
-    path.join("posts", slug + ".md"),
-    "utf-8"
-  );
-
-  const { data: frontmatter, content } = matter(markdownWithMeta);
-
-  return {
-    props: {
-      frontmatter,
-      slug,
-      content,
-    },
-  };
 }

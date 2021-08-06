@@ -1,4 +1,9 @@
-MIT License
+---
+title: "MIT License"
+date: "August 6, 2021"
+type: "License"
+excerpt: "LICENSE"
+---
 
 Copyright (c) 2021 Ruofan Wang
 

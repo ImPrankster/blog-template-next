@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
     padding: theme.spacing(2),
-    borderRadius: "0",
+    borderRadius: 0,
   },
 }));
 
@@ -21,7 +21,7 @@ const Header = ({ isInDarkMode }) => {
       <Image
         src={isInDarkMode ? LogoDark : LogoLight}
         alt="imprankster"
-        height={200}
+        height="200"
       />
     </Container>
   );

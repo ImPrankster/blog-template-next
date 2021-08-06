@@ -9,20 +9,21 @@ import { makeStyles } from "@material-ui/styles";
 import { Container, Grid } from "@material-ui/core";
 
 // Components
-import Post from "../components/Post";
-import PostFilterSelector from "../components/PostFilterSelector";
+import ArticleCard from "../components/ArticleCard";
+import AppTab from "../components/AppTab";
+import TabPanel from "../components/TabPanel";
 
 //get Props
 export async function getStaticProps() {
-  // Get files from root/posts
-  const files = fs.readdirSync(path.join("posts"));
-  // Get slugs and front matter from the posts
-  const posts = files.map((filename) => {
+  // Get files from root/articles
+  const files = fs.readdirSync(path.join("articles"));
+  // Get slugs and front matter from the articles
+  const articles = files.map((filename) => {
     // Create slug
     const slug = filename.replace(".md", "");
     // Front Matter
     const markdownWithMeta = fs.readFileSync(
-      path.join("posts", filename),
+      path.join("articles", filename),
       "utf-8"
     );
     const { data: frontmatter } = matter(markdownWithMeta);
@@ -35,7 +36,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      posts: posts.sort(sortByDate),
+      articles: articles.sort(sortByDate),
     },
   };
 }
@@ -44,11 +45,12 @@ export async function getStaticProps() {
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: theme.spacing(3),
+    marginBottom: theme.spacing(3),
   },
 }));
 
-export default function Home({ posts }) {
-  const [postFilter, setPostFilter] = useState(null);
+export default function Home({ articles }) {
+  const [filter, setFilter] = useState(0);
   const classes = useStyles();
 
   return (
@@ -59,30 +61,30 @@ export default function Home({ posts }) {
         <meta name="keywords" content="Design, Coding, Daily" />
       </Head>
 
-      <PostFilterSelector
-        postFilter={postFilter}
-        setPostFilter={setPostFilter}
-      />
-      <Container maxWidth="lg" className={classes.root}>
-        <Grid
-          container
-          direction="row"
-          justifyContent="center"
-          alignItems="flex-start"
-          spacing={4}
-        >
-          {posts
-            .filter((post) => {
-              if (postFilter == null) {
-                return true;
-              } else {
-                return post.frontmatter.type == postFilter;
-              }
-            })
-            .map((post, index) => (
-              <Post key={index} post={post} />
+      <AppTab filter={filter} setFilter={setFilter} />
+
+      <Container maxWidth="md" className={classes.root}>
+        <TabPanel value={filter} index={0}>
+          {articles
+            .filter((article) => article.frontmatter.type == "About")
+            .map((article, index) => (
+              <ArticleCard key={index} article={article} />
             ))}
-        </Grid>
+        </TabPanel>
+        <TabPanel value={filter} index={1}>
+          {articles
+            .filter((article) => article.frontmatter.type == "Daily")
+            .map((article, index) => (
+              <ArticleCard key={index} article={article} />
+            ))}
+        </TabPanel>
+        <TabPanel value={filter} index={2}>
+          {articles
+            .filter((article) => article.frontmatter.type == "Projects")
+            .map((article, index) => (
+              <ArticleCard key={index} article={article} />
+            ))}
+        </TabPanel>
       </Container>
     </>
   );

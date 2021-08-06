@@ -1,50 +1,40 @@
-import Header from "../components/Header";
 import React from "react";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
+import Fab from "@material-ui/core/Fab";
 import CssBaseline from "@material-ui/core/CssBaseline";
+
+import Header from "../components/Header";
+import ScrollTop from "../components/ScrollTop";
+import Footer from "../components/Footer";
+
+import { lightTheme, darkTheme } from "../utils/themes";
 import "../styles/global.css";
+
+import { FaArrowUp } from "react-icons/fa";
 
 function MyApp({ Component, pageProps }) {
   const isInDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
 
-  const theme = React.useMemo(
-    () =>
-      createTheme({
-        spacing: 8,
-
-        palette: {
-          type: isInDarkMode ? "dark" : "light",
-          primary: {
-            main: isInDarkMode ? "#8A6BBE" : "#6F3381",
-          },
-          secondary: {
-            main: "#CB4042",
-          },
-          background: {
-            default: isInDarkMode ? "#1c1c1c" : "#fffffb",
-          },
-        },
-
-        typography: {
-          h3: {
-            fontFamily: "Source Serif Pro, serif",
-            fontWeight: "600",
-            fontSize: "2.2rem",
-            "@media (min-width:600px)": {
-              fontSize: "3rem",
-            },
-          },
-        },
-      }),
-    [isInDarkMode]
-  );
+  React.useEffect(() => {
+    // Remove the server-side injected CSS.
+    const jssStyles = document.querySelector("#jss-server-side");
+    if (jssStyles) {
+      jssStyles.parentElement.removeChild(jssStyles);
+    }
+  }, []);
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={isInDarkMode ? darkTheme : lightTheme}>
       <CssBaseline />
       <Header isInDarkMode={isInDarkMode} />
       <Component {...pageProps} />
+      <Footer />
+      <ScrollTop>
+        <Fab color="secondary" size="large" aria-label="scroll back to top">
+          <FaArrowUp />
+        </Fab>
+      </ScrollTop>
     </ThemeProvider>
   );
 }
