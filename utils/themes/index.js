@@ -5,6 +5,9 @@ const lightTheme = createTheme({
 
   palette: {
     type: "light",
+    text: {
+      primary: "#1c1c1c",
+    },
     primary: {
       main: "#d53369",
     },
@@ -13,11 +16,18 @@ const lightTheme = createTheme({
     },
     background: {
       default: "#fffffb",
-      fancy: "linear-gradient(90deg, #d53369 0%, #daae51 100%)",
     },
   },
 
   typography: {
+    h1: {
+      fontFamily: "Source Serif Pro, serif",
+      fontWeight: "600",
+    },
+    h2: {
+      fontFamily: "Source Serif Pro, serif",
+      fontWeight: "600",
+    },
     h3: {
       fontFamily: "Source Serif Pro, serif",
       fontWeight: "600",
@@ -39,6 +49,9 @@ const darkTheme = createTheme({
 
   palette: {
     type: "dark",
+    text: {
+      primary: "#fffffb",
+    },
     primary: {
       main: "#d53369",
     },
@@ -47,11 +60,18 @@ const darkTheme = createTheme({
     },
     background: {
       default: "#1c1c1c",
-      fancy: "linear-gradient(90deg, #d53369 0%, #daae51 100%)",
     },
   },
 
   typography: {
+    h1: {
+      fontFamily: "Source Serif Pro, serif",
+      fontWeight: "600",
+    },
+    h2: {
+      fontFamily: "Source Serif Pro, serif",
+      fontWeight: "600",
+    },
     h3: {
       fontFamily: "Source Serif Pro, serif",
       fontWeight: "600",

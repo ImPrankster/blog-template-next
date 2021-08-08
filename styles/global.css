@@ -64,7 +64,7 @@
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   line-height: 1.5;
-  color: #24292e;
+  color: #1c1c1c;
   background-color: rgba(255, 255, 255, 0);
   font-family: "Roboto", sans-serif;
   font-size: 16px;
@@ -141,7 +141,7 @@
 }
 
 .markdown-body a {
-  color: #0366d6;
+  color: #d53369;
   text-decoration: none;
 }
 
@@ -992,11 +992,11 @@
 
 @media (prefers-color-scheme: dark) {
   .markdown-body {
-    color: #c9d1d9;
+    color: #fffffb;
     background-color: rgba(255, 255, 255, 0);
   }
   .markdown-body a {
-    color: #58a6ff;
+    color: #d53369;
   }
   .markdown-body hr {
     border-bottom: 1px solid #21262d;

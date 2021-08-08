@@ -8,7 +8,6 @@ import {
   CardActionArea,
   CardActions,
   CardContent,
-  CardMedia,
   Button,
   Typography,
   Tooltip,
@@ -16,7 +15,7 @@ import {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: "rgba(255, 255, 255, 0)",
+    background: "transparent",
     border: "1px solid",
     borderColor: theme.palette.primary.main,
     borderRadius: "8px",
@@ -30,14 +29,6 @@ const ArticleCard = ({ article }) => {
     <Grid item>
       <Card className={classes.root} variant="outlined">
         <CardActionArea href={`/article/${article.slug}`}>
-          <CardMedia
-            component="img"
-            alt={article.frontmatter.title}
-            height="140"
-            image={article.frontmatter.cover_image}
-            title={article.frontmatter.title}
-          />
-
           <CardContent>
             <Typography variant="h6" component="h2">
               {article.frontmatter.title}

@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";
+import Head from "next/head";
 
 import {
   Container,
@@ -64,42 +65,43 @@ export async function getStaticProps({ params: { slug } }) {
 }
 
 export default function PostPage({
-  frontmatter: { title, type, date, cover_image },
+  frontmatter: { title, type, date, excerpt },
   slug,
   content,
 }) {
   const classes = useStyles();
 
   return (
-    <Container maxWidth="md" className={classes.root}>
-      <Button color="secondary" startIcon={<ArrowBackRoundedIcon />} href="/">
-        GO BACK
-      </Button>
-      <Tooltip title="Under Development" placement="top">
-        <Button color="secondary">Talk About It</Button>
-      </Tooltip>
-      <Grid
-        container
-        direction="column"
-        justifyContent="flex-start"
-        alignItems="flex-start"
-        className={classes.frontmatterGrid}
-      >
-        <img
-          src={cover_image}
-          alt=""
-          width="100%"
-          className={classes.frontmatterImg}
-        />
-        <Typography variant="h3" gutterBottom>
-          {title}
-        </Typography>
-        <Typography variant="caption">{"#" + type}</Typography>
-        <Typography variant="caption">{"Posted On  " + date}</Typography>
-      </Grid>
-      <div className="markdown-body">
-        <ReactMarkdown>{content}</ReactMarkdown>
-      </div>
-    </Container>
+    <>
+      <Head>
+        <title>ImPrankster&apos;s Blogs</title>
+        <meta name="description" content={excerpt} />
+      </Head>
+
+      <Container maxWidth="md" className={classes.root}>
+        <Button color="secondary" startIcon={<ArrowBackRoundedIcon />} href="/">
+          GO BACK
+        </Button>
+        <Tooltip title="Under Development" placement="top">
+          <Button color="secondary">Talk About It</Button>
+        </Tooltip>
+        <Grid
+          container
+          direction="column"
+          justifyContent="flex-start"
+          alignItems="flex-start"
+          className={classes.frontmatterGrid}
+        >
+          <Typography variant="h3" gutterBottom>
+            {title}
+          </Typography>
+          <Typography variant="caption">{"#" + type}</Typography>
+          <Typography variant="caption">{"Posted On  " + date}</Typography>
+        </Grid>
+        <div className="markdown-body">
+          <ReactMarkdown>{content}</ReactMarkdown>
+        </div>
+      </Container>
+    </>
   );
 }

@@ -44,8 +44,10 @@ export async function getStaticProps() {
 //Set Style
 const useStyles = makeStyles((theme) => ({
   root: {
-    padding: theme.spacing(3),
-    marginBottom: theme.spacing(3),
+    paddingLeft: theme.spacing(3),
+    paddingRight: theme.spacing(3),
+    marginTop: theme.spacing(4),
+    marginBottom: theme.spacing(4),
   },
 }));
 
@@ -58,7 +60,6 @@ export default function Home({ articles }) {
       <Head>
         <title>ImPrankster&apos;s Blogs</title>
         <meta name="description" content="Blog from ImPrankster" />
-        <meta name="keywords" content="Design, Coding, Daily" />
       </Head>
 
       <AppTab filter={filter} setFilter={setFilter} />

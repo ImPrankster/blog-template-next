@@ -7,7 +7,7 @@ import { FaRegHandSpock, FaSnowboarding, FaPaperclip } from "react-icons/fa";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: "rgba(255, 255, 255, 0)",
+    background: "transparent",
     marginBottom: theme.spacing(1),
     marginTop: theme.spacing(1),
   },

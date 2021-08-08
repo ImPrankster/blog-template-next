@@ -1,6 +1,6 @@
 import React from "react";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { createTheme, ThemeProvider } from "@material-ui/core/styles";
+import { ThemeProvider } from "@material-ui/core/styles";
 import Fab from "@material-ui/core/Fab";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
