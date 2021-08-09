@@ -19,15 +19,11 @@ const useStyles = makeStyles((theme) => ({
   root: {
     paddingTop: theme.spacing(3),
     paddingBottom: theme.spacing(3),
-    paddingLeft: theme.spacing(6),
-    paddingRight: theme.spacing(6),
+    paddingLeft: theme.spacing(4),
+    paddingRight: theme.spacing(4),
   },
   frontmatterGrid: {
-    marginTop: theme.spacing(3),
-    marginBottom: theme.spacing(3),
-  },
-  frontmatterImg: {
-    borderRadius: "8px",
+    marginTop: theme.spacing(1),
     marginBottom: theme.spacing(3),
   },
 }));

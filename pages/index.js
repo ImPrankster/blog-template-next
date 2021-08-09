@@ -6,7 +6,7 @@ import matter from "gray-matter";
 import { sortByDate } from "../utils";
 import { makeStyles } from "@material-ui/styles";
 
-import { Container, Grid } from "@material-ui/core";
+import { Container } from "@material-ui/core";
 
 // Components
 import ArticleCard from "../components/ArticleCard";
@@ -59,7 +59,8 @@ export default function Home({ articles }) {
     <>
       <Head>
         <title>ImPrankster&apos;s Blogs</title>
-        <meta name="description" content="Blog from ImPrankster" />
+        <meta name="description" content="All about ImPrankster" />
+        <meta name="keywords" content="ImPrankster, Blog, Code, Design" />
       </Head>
 
       <AppTab filter={filter} setFilter={setFilter} />

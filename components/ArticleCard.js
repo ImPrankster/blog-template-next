@@ -16,7 +16,7 @@ import {
 const useStyles = makeStyles((theme) => ({
   root: {
     background: "transparent",
-    border: "1px solid",
+    border: "2px solid",
     borderColor: theme.palette.primary.main,
     borderRadius: "8px",
   },

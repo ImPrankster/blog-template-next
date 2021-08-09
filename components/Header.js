@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     justifyContent: "center",
-    padding: theme.spacing(2),
+    paddingTop: theme.spacing(2),
     borderRadius: 0,
   },
 }));

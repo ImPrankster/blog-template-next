@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(6),
   },
   content: {
-    borderTop: "1px solid",
+    borderTop: "2px solid",
     borderColor: theme.palette.primary.main,
     padding: theme.spacing(2),
   },
@@ -48,7 +48,7 @@ const Footer = () => {
           Hosted On <Link href="https://vercel.com/">Vercel</Link>
         </Typography>
         <Typography variant="caption">
-          All Content is released under&nbsp;
+          If not specifically stated, All Content is released under&nbsp;
           <Link href="/article/license">CC BY_SA 4.0</Link>
         </Typography>
       </Grid>
