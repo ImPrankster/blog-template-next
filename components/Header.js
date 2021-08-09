@@ -14,13 +14,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+/*
+This is the Header of each page
+The logo should be changed to your own
+You can also add other stuffs to the Header like Typography
+*/
+
 const Header = ({ isInDarkMode }) => {
   const classes = useStyles();
   return (
     <Container className={classes.root} maxWidth="md">
       <Image
         src={isInDarkMode ? LogoDark : LogoLight}
-        alt="imprankster"
+        alt="the logo"
         height="200"
       />
     </Container>

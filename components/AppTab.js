@@ -22,6 +22,9 @@ const AppTab = ({ filter, setFilter }) => {
   const classes = useStyles();
   const isSmallScreen = !useMediaQuery("(min-width:600px)");
 
+  //Change the below Type filters to your own, you can also add more.
+  //The label text will hide if the window size is smaller than 600px in width.
+
   return (
     <Container maxWidth="sm">
       <Paper className={classes.root} elevation={0}>

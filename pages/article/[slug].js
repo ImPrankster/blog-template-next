@@ -76,7 +76,7 @@ export default function PostPage({
   return (
     <>
       <Head>
-        <title>ImPrankster&apos;s Blogs</title>
+        <title>{title}</title>
         <meta name="description" content={excerpt} />
       </Head>
 

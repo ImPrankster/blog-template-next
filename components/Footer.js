@@ -20,6 +20,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+/*
+This is the footer of each page
+Change the text to your own
+*/
+
 const Footer = () => {
   const classes = useStyles();
   return (
@@ -33,7 +38,7 @@ const Footer = () => {
       >
         <Typography variant="caption">
           By&nbsp;
-          <Link href="/article/about-me">ImPrankster</Link>
+          <Link href="/article/about-me">Your_Name</Link>
         </Typography>
         <Typography variant="caption">
           Built with&nbsp;
@@ -43,9 +48,6 @@ const Footer = () => {
           <Typography variant="caption" component="span" color="primary">
             Love
           </Typography>
-        </Typography>
-        <Typography variant="caption">
-          Hosted On <Link href="https://vercel.com/">Vercel</Link>
         </Typography>
         <Typography variant="caption">
           If not specifically stated, All Content is released under&nbsp;

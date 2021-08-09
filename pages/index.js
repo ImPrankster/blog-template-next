@@ -58,9 +58,7 @@ export default function Home({ articles }) {
   return (
     <>
       <Head>
-        <title>ImPrankster&apos;s Blog</title>
-        <meta name="description" content="All about ImPrankster" />
-        <meta name="keywords" content="ImPrankster, Blog, Code, Design" />
+        <title>Someone's Blog</title>
       </Head>
 
       <AppTab filter={filter} setFilter={setFilter} />
