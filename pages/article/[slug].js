@@ -28,6 +28,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+//Generate Static Paths
+
 export async function getStaticPaths() {
   const files = fs.readdirSync(path.join("articles"));
 
@@ -42,6 +44,8 @@ export async function getStaticPaths() {
     fallback: false,
   };
 }
+
+//Get article frontmatter, slug and contents.
 
 export async function getStaticProps({ params: { slug } }) {
   const markdownWithMeta = fs.readFileSync(
@@ -66,6 +70,8 @@ export default function PostPage({
   content,
 }) {
   const classes = useStyles();
+
+  //!Commenting system is not done
 
   return (
     <>

@@ -25,6 +25,8 @@ const useStyles = makeStyles((theme) => ({
 const ArticleCard = ({ article }) => {
   const classes = useStyles();
 
+  //!Commenting system is not done
+
   return (
     <Grid item>
       <Card className={classes.root} variant="outlined">
