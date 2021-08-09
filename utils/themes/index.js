@@ -1,5 +1,11 @@
 import { createTheme } from "@material-ui/core";
 
+/*Under here you can change the Theme of your Webpage
+Follow the guide on https://material-ui.com/customization/theming/ to create your own theme
+lightTheme and darkTheme is automatically adapted according to the system setting, However you can also change it manually by setting the Hook in the _appjs
+Notice that the style of the markdown body is controlled seperately in the global.css
+*/
+
 const lightTheme = createTheme({
   spacing: 8,
 

@@ -58,7 +58,7 @@ export default function Home({ articles }) {
   return (
     <>
       <Head>
-        <title>ImPrankster&apos;s Blogs</title>
+        <title>ImPrankster&apos;s Blog</title>
         <meta name="description" content="All about ImPrankster" />
         <meta name="keywords" content="ImPrankster, Blog, Code, Design" />
       </Head>

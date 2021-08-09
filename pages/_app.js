@@ -14,6 +14,7 @@ import "../styles/global.css";
 import { FaArrowUp } from "react-icons/fa";
 
 function MyApp({ Component, pageProps }) {
+  //Hook for the change of theme
   const isInDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
 
   React.useEffect(() => {
