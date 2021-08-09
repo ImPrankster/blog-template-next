@@ -33,6 +33,7 @@ Made with [Next.js](https://nextjs.org/) and [Material-UI](https://material-ui.c
 ## Thanks to
 
 [react-icons](https://react-icons.github.io/react-icons) for providing the cool icons.
+
 [generate-github-markdown-css](https://github.com/sindresorhus/generate-github-markdown-css)
 
 ## License
